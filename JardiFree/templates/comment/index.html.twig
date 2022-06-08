@@ -1,0 +1,24 @@
+
+{% block body %}
+
+{% for  comment in commentArray %}
+<div class="container" style="border:solid black 0.2rem; margin-top: 0.4rem">
+  <div class="row"  style="padding: 0;;">
+    <div class="col-3 d-flex bg-primary align-items-center flex-column" style="border:solid black 0.01rem;;">
+      <p>{{ comment.author }}</p>
+      <p style="font-size: 10px;">The {{ comment.createdAt | date('Y-m-d') }} at {{ comment.createdAt | date('H:i:s') }}</p>
+    </div>
+    <div class="col-9 ">
+      <p> {{comment.content }} </p>
+    </div>
+    {# <div class="col-1  d-flex justify-content-sm-around flex-column" style="border:solid black 0.02rem;;">
+    {% if verifEdCom == 1 %}
+       <a class="btn" href="{{ path('app_comment_edit', {'id': comment.id}) }}"> Edit </a>
+       <a class="btn" href="{{ path('app_comment_delete', {'id': comment.id}) }}"> Delete </a>
+    {% endif %}
+    </div> #}
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

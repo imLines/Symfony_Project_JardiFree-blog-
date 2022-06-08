@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index{% endblock %}
+
+{% block body %}
+<div class="d-flex justify-content-center">
+    <h1>Articles</h1>
+</div>
+   
+       
+            {# {{ article.title }}
+            {{ article.author }}
+            {{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}
+            {{ article.content }}
+
+                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
+
+                    {% if is_granted('ROLE_USER') %}
+                        <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
+                    {% endif %}
+        {% else %} #}
+    <div class="d-flex flex-column justify-content-center align-items-center row">
+        {% for article in articles %}
+            <div class="card" style="width: 50%; margin-top: 2rem" >
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p class="card-text"> whriting by {{ article. author }} the {{ article.createdAt | date('Y-m-d')}} at {{ article.createdAt | date('H:i:s')}}</p>
+                    <a href="{{path('article_show', {id: article.id})}}" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        {% endfor %}
+</div>
+    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+{% endblock %}

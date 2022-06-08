@@ -1,0 +1,40 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}New Comment{% endblock %}
+
+{% block body %}
+    <h1>Create new Comment</h1>
+
+    {{ include('comment/_form.html.twig') }}
+
+    <a href="{{ path('app_comment_index') }}">back to list</a>
+{% endblock %}
+  #}
+
+
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+
+    {{ form_start(form) }}
+        <div style="margin-top: 3%;" class="d-flex flex-column align-items-center">
+             <h2>Your comment</h2>
+
+            <div style="width: 50%;" class="form-group d-flex flex-column align-items-center">
+                {{ form_widget(form.content, {'attr': {'class': 'form-control', 'placeholder': 'Votre commentaire ici...', 'id' : 'inputDefault'}}) }} 
+            </div>
+            
+            <div class="form-group d-flex flex-row align-items-center " style="margin-top: 2rem">
+                <button class="btn">{{ button_label|default('Save') }}</button>                
+                <a class="btn bg-danger" style="color: white;" href="{{ path('app_article_index') }}"> Return  </a>
+            </div>
+        </div>    
+    {{ form_end(form) }}
+
+
+
+{% endblock %} 
+  

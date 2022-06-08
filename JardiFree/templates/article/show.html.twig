@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+   
+
+    <div class="container ">
+            <p> Catégorie : {{ article.category }}
+
+        <div class="col d-flex column justify-content-center" style="margin-top: 2rem;">
+            <h2> {{ article.title }} </h2>
+        </div>
+        <div class="col d-flex column justify-content-center" style="height: auto; width: auto;">
+            <p> Created by {{ article.author }} the {{ article.createdAt | date('Y-m-d') }} at {{ article.createdAt | date('H:i:s') }} </p>
+        </div>
+        <div class="col d-flex column justify-content-center" style="margin-top: 2rem; border: 2px solid grey; border-radius: 10px ">
+            <p> {{ article.content }} </p>
+        </div>
+        {% if verifDeArt == 1 %}
+        <div style="margin-top: 4rem;" class="col d-flex flex-row justify-content-center">
+            <a class="btn" href="{{ path('app_article_edit', {'id': article.id}) }}"> Edit Article</a>
+            {{ include('article/_delete_form.html.twig') }} 
+        </div>
+        {% endif %}
+        <a class="btn bg-primary"href="{{ path('app_comment_new')}}" style="margin-top:4rem"> Ecrire un commentaire </a> 
+
+
+        {% include 'comment/index.html.twig' %}
+        <div class="col d-flex column justify-content-center" style="margin-top: 4rem;">
+        </div>
+    </div> 
+
+{% endblock %}

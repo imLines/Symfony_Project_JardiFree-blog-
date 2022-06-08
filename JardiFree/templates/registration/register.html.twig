@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{ form_start(registrationForm) }}
+  {{ form_row(registrationForm._token) }}
+
+    <div class="container"  style="margin-top:3rem;">
+             <h3> Inscription sur JardiFREE </h3>
+             <form>
+               <fieldset>
+                
+                 
+                 <div class="form-group" style="margin-top:3rem;">
+                   {{ form_row(registrationForm.login, {'label': 'Nom utilisateur', 'attr' : {'placeholder' : 'Entrez ici votre pseudo ici...', 'class': "form-control"}}) }}
+                 </div>
+                 
+                 <div class="form-group" style="margin-top:2rem;">
+                    {{ form_row(registrationForm.email, {'label': 'Email', 'attr' : {'placeholder' : 'Entrez ici votre adresse mail...', 'class': "form-control"}}) }}
+                 </div>
+                 <div class="form-group"style="margin-top:2rem;">
+                    {{ form_row(registrationForm.plainPassword, {'label': 'Password', 'attr' : {'placeholder' : 'Choisissez votre mot de passe ...', 'class': "form-control"}})}}
+                 </div>
+                 <div class="form-group" style="margin-top:2rem;">
+                      {# {{ form_row(form.confirm_password, {'label': 'Confirmation mot de passe', 'attr' : {'placeholder' : 'Confirmez votre mot de passe...', 'class': "form-control"}}) }} #}
+                </div>
+                <div class="form-group" style="margin-top:2rem;">
+                    {{ form_row(registrationForm.avatar, {'attr': {'class': 'form-control', 'id' : 'formFile', 'type' : 'file'}}) }}
+                </div>
+                <div class="form-group" style="margin-top:2rem;">
+                    <p> Veuillez prendre connaissance des conditions générals du site</p>
+                    {{ form_row(registrationForm.agreeTerms, {'label': "J'accepte", 'attr' : { 'style' : 'margin-left: 1rem;'}} )}}
+                </div>
+                <div class="d-flex flex-row justify-content-center" style="margin-top:2rem; margin-bottom:10rem;">
+                    <button style=" margin-top: 3%;" type="submit" class="btn btn-primary">M'inscrire !</button>
+                    
+                </div>
+              </fieldset>
+            </form>
+        </div>
+        {{ form_rest(registrationForm) }}
+    {{ form_end(registrationForm) }}
+
+
+{% endblock %} 
